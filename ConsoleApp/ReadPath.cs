@@ -1,18 +1,25 @@
-﻿
-using System;
+﻿using System;
+using System.IO;
 
 namespace ConsoleApp
 {
-    public interface IAction
+    internal class ReadFile
     {
-        public void ToDo(string path);
-    }
-    public class Input
-    {
-        public string InputPath()
+        public static string ReadT()
         {
-            Console.WriteLine("Введите путь:");
-            return Console.ReadLine();
+            Console.Write("Введите путь к файлу ");
+            string path = Console.ReadLine();
+            if (File.Exists(path))
+            {
+                string textStream = File.ReadAllText(path); // Считываем весь текс с текстового файла
+                return textStream;
+            }
+            else
+            {
+                Console.WriteLine("Указаного файл нет");
+                Console.ReadKey();
+                return null;
+            }
         }
     }
 }

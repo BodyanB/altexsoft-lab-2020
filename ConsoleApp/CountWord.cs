@@ -5,14 +5,14 @@ using System.IO;
 
 namespace ConsoleApp
 {
-    class CountWord
+    class CountWord : ReadText
     {
         public void CWord()
         {
-            /*
+            
             string word;
-            string readText = File.ReadAllText(path);
-            string[] words = readText.Split(new char[] { ' ', '"', '.', '?', '!', ',', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+            string textStream = ReadT();
+            string[] words = textStream.Split(new char[] { ' ', '"', '.', '?', '!', ',', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
 
             Console.WriteLine("Количество слов:" + words.Length);
 
@@ -23,8 +23,7 @@ namespace ConsoleApp
                 resultWords.Add(word);
             }
             Console.WriteLine(String.Join(',', resultWords));
-            */
-            Console.WriteLine("2");
+            
         }
     }
 }

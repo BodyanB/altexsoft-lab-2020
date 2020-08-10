@@ -1,38 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.IO;
 
 namespace ConsoleApp
 {
-    class ThirdSentence
+    class ThirdSentence : ReadText
     {
         public void TSentence()           
         {
-            Console.WriteLine("3");
-            /*
-            using (StreamReader str = File.OpenText(path))
+            string textStream = ReadT();
+
+            string[] sentences = textStream.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+            if (sentences.Length >= 3)
             {
-                int value = 0;
-                char[] charArr = new char[] { ' ' };
-                while (str.Peek() != -1)
+                string senrence = sentences[2];
+                string[] words = senrence.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string word;
+                List<string> reverseWords = new List<string>();
+                for (int i = 0; i < words.Length; i++)
                 {
-                    char simbol = (char)str.Read();
-                    if (simbol == '.')
-                    {
-                        value += 1;
-                        if (value == 2)
-                        {
-                            string Line = str.ReadLine();
-                            string[] strArr = Line.Split(charArr);
-                            char[] inputarray = Line.ToCharArray();
-                            Array.Reverse(inputarray);
-                            string output = new string(inputarray);
-                            Console.WriteLine(output);
-                        }
-                    }
+                    word = words[i];
+                    reverseWords.Add(new string(word.ToCharArray().Reverse().ToArray()));
                 }
-            }*/
-        } 
+
+                Console.WriteLine(String.Join(' ', reverseWords));
+            }
+            else
+            {
+                Console.WriteLine("Такого предложения нет!");
+            }
+        }
     }
 }

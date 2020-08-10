@@ -7,44 +7,49 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApp
 {
-    class ReadText : Menu
+    class ReadText : ReadFile
     {
-        
+
         public void RText()
         {
-            Console.WriteLine(FILEPATHS);
-            string Line;
-            string pathNew = @"C:\Users\User\source\repos\altexsoft-lab-2020\ConsoleApp\ConsoleApp\bin\Debug\note.txt";
-            //string path = @"C:\Users\User\source\repos\altexsoft-lab-2020\ConsoleApp\ConsoleApp\bin\Debug\work.txt";
-            using (StreamReader fs = File.OpenText(m_filepaths))
+            string textStream = ReadT();
+            Console.Write("Введите слово или символ для удаления. ");
+            string word = Console.ReadLine();
+            if (String.IsNullOrEmpty(word))
             {
-                while (fs.Peek() != -1)
-                {
-
-                    Line = fs.ReadLine();
-
-                    var charsToRemove = new string[] { "@", ",", ".", ";", "'", "!", "?", "(", ")" };
-
-                    foreach (var c in charsToRemove)
-                    {
-                        Line = Line.Replace(c, string.Empty);
-                    }
-                    Console.WriteLine(Line);
-                    File.AppendAllText(pathNew, Line);
-                }
-            }
-            string readText = File.ReadAllText(pathNew);
-            string pattern = @"\?\^\`\{\}\|";
-            int result = String.Compare(readText, pattern);
-            if (Regex.Matches(readText, pattern).Count == 0)
-            {
-                Console.WriteLine("Такой подстроки нет!");
+                Console.WriteLine(textStream);
             }
             else
+               if (textStream.Contains(word))
+                {
+                    string textReplace = textStream.Replace(word, "");
+                    Console.WriteLine(textReplace);
+                    Console.Write("Введите путь для сохранения файла: ");
+                    string writePath = (Console.ReadLine());
+                    string writePathFile = writePath + "note.txt";
+                    try
+                    {
+                        using (StreamWriter sw = new StreamWriter(writePathFile, false, System.Text.Encoding.Default))
+                        {
+                            sw.WriteLine(textReplace);
+                            sw.Close();
+                        }
+                        Console.WriteLine("Запись выполнена в файл: " + writePathFile);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+            
+
+
+                else
             {
-                Console.WriteLine("Такая подстрока есть!");
+                Console.WriteLine("В тексте нет такого слова");
             }
         }
-        
     }
-}
+}    
+    
+
