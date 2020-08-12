@@ -11,7 +11,7 @@ namespace ConsoleApp
             string path = Console.ReadLine();
             if (File.Exists(path))
             {
-                string textStream = File.ReadAllText(path); // Считываем весь текс с текстового файла
+                string textStream = File.ReadAllText(path); 
                 return textStream;
             }
             else
