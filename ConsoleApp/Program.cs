@@ -15,7 +15,7 @@ namespace task1
         {
 
             Menu menu = new Menu();
-            menu.showMenuScreen();
+            menu.ShowMenuScreen();
 
 
             Console.WriteLine("Press any key to exit..");

@@ -8,168 +8,63 @@ using System.Threading;
 
 namespace ConsoleApp
 {
-    class Menu
+    class Menu 
     {
-        #region Private Members
-        private List<string> m_datafromfile = new List<string>();
-      
-        private string[] m_filepaths;
+        static public string Comand;
 
-        #endregion
-
-
-        #region Constructor
-        public Menu()
+        public void ShowMenuScreen()
         {
-           
-        }
-        #endregion
+            string autndate = "Author: B/B\t\t\t\t\t  Date:" + System.DateTime.Now;
 
-        #region Public Properties
-        public List<string> MAINMENUFILEDATA
-        {
-            get
+            while (true)
             {
-                return m_datafromfile;
-            }
-            set
-            {
-                m_datafromfile = value;
-            }
 
-        }
-        public string[] FILEPATHS
-        {
-            get
-            {
-                return m_filepaths;
-            }
-            set
-            {
-                m_filepaths = value;
-            }
+                if (Comand == "5") break;
+                Console.WriteLine(autndate);
+                Console.WriteLine("### MENU ###");
+                Console.WriteLine("1. Считать по указанному в пути текстовый файл и удалить в нем указанный в консоли символ/слово.");
+                Console.WriteLine("2. Считывает текстовый файл и вывести на экран количество слов в тексте, а также вывести каждое 10-е слово через запятую.");
+                Console.WriteLine("3. Вывести 3-е предложение в тексте. При чем буквы слов должны быть в обратном порядке.");
+                Console.WriteLine("4. Вывести имена папок по указанному пути в консоли. У каждой папки должен быть идентификатор, по которому пользователь сможет находить нужную папку и видеть все файлы.");
+                Console.WriteLine("5. Exit.");
+                Console.Write("\n" + "Введите команду: ");
+                Comand = Console.ReadLine();
+                switch (Comand)
+                {
+                    case "1":
+                        Console.Clear();
+                        Text rt = new Text();
+                        rt.RText();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Word cw = new Word();
+                        cw.CWord();
+                        break;
+                    case "3":
+                        Console.Clear();
+                        ThirdSentence ts = new ThirdSentence();
+                        ts.TSentence();
+                        break;
+                    case "4":
+                        Console.Clear();
+                        FolderName fn = new FolderName();
+                        fn.FName();
+                        break;
+                    case "5":
+                        Console.Clear();
+                        Console.WriteLine("Exit");
+                        return;
 
-        }
-
-        #endregion
-
-        #region Public Member Functions
-
-        private void readRelaventFile()
-        {
-
-            readFilesPath();
-            ReadDataFromMainFile();
+                }
 
 
-        }
 
-        public void showMenuScreen()
-        {
-            string autndate = "Author: N/A\t\t\t\t\t  Date:" + System.DateTime.Now;
-            readRelaventFile();
-            
-            if (!MAINMENUFILEDATA.Contains(autndate))
-            {
-                MAINMENUFILEDATA.Insert(1, autndate);
-            }
-        top: foreach (string item in MAINMENUFILEDATA)
-            {
-                Console.WriteLine(item);
-            }
-        up:
-            int n = 0;
-            try
-            {
-                n = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception) 
-            {
-                Console.WriteLine("You have not entered a number");
-            }
-            
-            switch (n)
-            {
-                case 1:
-                    Console.Clear();
-                    ReadText rt = new ReadText();
-                    rt.RText();
-                    break;
-                case 2:
-                    Console.Clear();
-                    CountWord cw = new CountWord();
-                    cw.CWord();
-                    break;
-                case 3:
-                    Console.Clear();
-                    ThirdSentence ts = new ThirdSentence();
-                    ts.TSentence();
-                    break;
-                case 4:
-                    Console.Clear();
-                    FolderName fn = new FolderName();
-                    fn.FName();
-                    break;               
-                case 5:
-                    Console.Clear();
-                    Console.WriteLine("Exit");
-                    return;
-                //break;
-                default:
-                    Console.WriteLine("Please enter correct number");
-                    goto up;
-                    //break;
-            }
 
-            Console.WriteLine("Please type r to return to main menu or e to exit");
-        input: string r = Console.ReadLine();
-            if (r.ToLower() == "r")
-            {
-                Console.Clear();
-                goto top;
-            }
-            else if (r.ToLower() == "e")
-            {
-                return;
-            }
-            else
-            {
-                Console.WriteLine("Please enter correct value either r or e`");
-                goto input;
+
+
+
             }
         }
-
-        #endregion
-
-        #region Private Member Functions
-        private void ReadDataFromMainFile()
-        {
-            string path = FILEPATHS.First(p => p.Contains("Main"));
-            StreamReader srObj = new StreamReader(path);
-
-            string line = srObj.ReadLine();
-
-            while (line != null)
-            {
-                MAINMENUFILEDATA.Add(line);
-                line = srObj.ReadLine();
-
-            }
-
-
-        }
-
-        public void readFilesPath()
-        {
-            string path = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase);
-            path += "files";
-            
-            FILEPATHS = Directory.GetFiles(path);
-                     
-        }
-
-        #endregion
-
-
     }
 }

@@ -5,7 +5,7 @@ using System.IO;
 
 namespace ConsoleApp
 {
-    class ThirdSentence : ReadText
+    class ThirdSentence : Text
     {
         public void TSentence()           
         {

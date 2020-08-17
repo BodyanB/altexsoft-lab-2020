@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApp
 {
-    class ReadText : ReadFile
+    class Text : ReadFile
     {
 
         public void RText()

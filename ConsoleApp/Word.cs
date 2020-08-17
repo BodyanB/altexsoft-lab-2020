@@ -5,7 +5,7 @@ using System.IO;
 
 namespace ConsoleApp
 {
-    class CountWord : ReadText
+    class Word : Text
     {
         public void CWord()
         {
