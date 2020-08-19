@@ -13,7 +13,7 @@ namespace ConsoleApp
         public void RText()
         {
             string textStream = ReadT();
-            Console.Write("Введите слово или символ для удаления. ");
+            Console.Write("Enter the word or symbol to delete.");
             string word = Console.ReadLine();
             if (String.IsNullOrEmpty(word))
             {
@@ -24,7 +24,7 @@ namespace ConsoleApp
                 {
                     string textReplace = textStream.Replace(word, "");
                     Console.WriteLine(textReplace);
-                    Console.Write("Введите путь для сохранения файла: ");
+                    Console.Write("Enter the path to save file: ");
                     string writePath = (Console.ReadLine());
                     string writePathFile = writePath + "note.txt";
                     try
@@ -34,7 +34,7 @@ namespace ConsoleApp
                             sw.WriteLine(textReplace);
                             sw.Close();
                         }
-                        Console.WriteLine("Запись выполнена в файл: " + writePathFile);
+                        Console.WriteLine("Written to file: " + writePathFile);
                     }
                     catch (Exception e)
                     {
@@ -46,7 +46,7 @@ namespace ConsoleApp
 
                 else
             {
-                Console.WriteLine("В тексте нет такого слова");
+                Console.WriteLine("There is no such word in the text.");
             }
         }
     }

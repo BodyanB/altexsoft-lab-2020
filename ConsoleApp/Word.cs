@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.IO;
 
 namespace ConsoleApp
 {
     class Word : Text
     {
-        public void CWord()
+        public void CountWord()
         {
             
             string word;
             string textStream = ReadT();
-            string[] words = textStream.Split(new char[] { ' ', '"', '.', '?', '!', ',', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+            Regex regex = new Regex(@"[^\w'\s]+", RegexOptions.Compiled);
+            string replaceText = regex.Replace(textStream, "").Trim();
+            Regex regex1 = new Regex(@"\s+", RegexOptions.Compiled);
+            string[] words = regex1.Split(replaceText.Trim()); 
 
-            Console.WriteLine("Количество слов:" + words.Length);
+            Console.WriteLine("Key word:" + words.Length);
 
             List<string> resultWords = new List<string>();
             for (int i = 9; i < words.Length; i += 10)
@@ -22,7 +25,7 @@ namespace ConsoleApp
                 word = words[i];
                 resultWords.Add(word);
             }
-            Console.WriteLine(String.Join(',', resultWords));
+            Console.WriteLine(string.Join(',', resultWords));
             
         }
     }

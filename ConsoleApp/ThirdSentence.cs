@@ -7,7 +7,7 @@ namespace ConsoleApp
 {
     class ThirdSentence : Text
     {
-        public void TSentence()           
+        public void MoveTSentence()           
         {
             string textStream = ReadT();
 
@@ -24,11 +24,11 @@ namespace ConsoleApp
                     reverseWords.Add(new string(word.ToCharArray().Reverse().ToArray()));
                 }
 
-                Console.WriteLine(String.Join(' ', reverseWords));
+                Console.WriteLine(string.Join(' ', reverseWords));
             }
             else
             {
-                Console.WriteLine("Такого предложения нет!");
+                Console.WriteLine("Sentence does not exist.");
             }
         }
     }

@@ -7,7 +7,7 @@ namespace ConsoleApp
     {
         public static string ReadT()
         {
-            Console.Write("Введите путь к файлу ");
+            Console.Write("Enter the path:");
             string path = Console.ReadLine();
             if (File.Exists(path))
             {
@@ -16,7 +16,7 @@ namespace ConsoleApp
             }
             else
             {
-                Console.WriteLine("Указаного файл нет");
+                Console.WriteLine("File does not exist.");
                 Console.ReadKey();
                 return null;
             }

@@ -24,9 +24,9 @@ namespace ConsoleApp
                 }
 
             }
-            catch (Exception e)
+            catch 
             {
-                Console.WriteLine("The process failed: {0}", e.ToString());
+                Console.WriteLine("The process failed.");
             }
 
             Console.WriteLine(@"Enter the folder numbers:");
@@ -45,9 +45,9 @@ namespace ConsoleApp
                     Console.WriteLine(fl);
                 }
             }
-            catch (Exception e)
+            catch 
             {
-                Console.WriteLine("The process failed: {0}", e.ToString());
+                Console.WriteLine("The process failed.");
             }
         }
     }

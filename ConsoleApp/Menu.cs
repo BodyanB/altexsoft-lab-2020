@@ -10,24 +10,24 @@ namespace ConsoleApp
 {
     class Menu 
     {
-        static public string Comand;
+        public static string Comand;
 
         public void ShowMenuScreen()
         {
-            string autndate = "Author: B/B\t\t\t\t\t  Date:" + System.DateTime.Now;
+            string autDate = "Author: B/B\t\t\t\t\t  Date:" + System.DateTime.Now;
 
             while (true)
             {
 
                 if (Comand == "5") break;
-                Console.WriteLine(autndate);
+                Console.WriteLine(autDate);
                 Console.WriteLine("### MENU ###");
-                Console.WriteLine("1. Считать по указанному в пути текстовый файл и удалить в нем указанный в консоли символ/слово.");
-                Console.WriteLine("2. Считывает текстовый файл и вывести на экран количество слов в тексте, а также вывести каждое 10-е слово через запятую.");
-                Console.WriteLine("3. Вывести 3-е предложение в тексте. При чем буквы слов должны быть в обратном порядке.");
-                Console.WriteLine("4. Вывести имена папок по указанному пути в консоли. У каждой папки должен быть идентификатор, по которому пользователь сможет находить нужную папку и видеть все файлы.");
+                Console.WriteLine("1. Read the text file  in the path and delete the symbol / word speced in the console in it.");
+                Console.WriteLine("2. Reads a text file and print the number of words in the text, and print every 10th word separated by commas.");
+                Console.WriteLine("3. Print the 3rd sentence in the text and the letters of the words must be in reverse order.");
+                Console.WriteLine("4. Display the names of folders at the specified path in the console. Each folder must have an identifier.");
                 Console.WriteLine("5. Exit.");
-                Console.Write("\n" + "Введите команду: ");
+                Console.Write("\n" + "Enter the command 1-5: ");
                 Comand = Console.ReadLine();
                 switch (Comand)
                 {
@@ -39,12 +39,12 @@ namespace ConsoleApp
                     case "2":
                         Console.Clear();
                         Word cw = new Word();
-                        cw.CWord();
+                        cw.CountWord();
                         break;
                     case "3":
                         Console.Clear();
                         ThirdSentence ts = new ThirdSentence();
-                        ts.TSentence();
+                        ts.MoveTSentence();
                         break;
                     case "4":
                         Console.Clear();
