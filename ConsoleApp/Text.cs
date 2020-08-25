@@ -7,15 +7,16 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApp
 {
-    class Text : ReadFile
+    class Text : Path
     {
 
-        public void RText()
+        public void ReadText()
         {
             string textStream = ReadT();
             Console.Write("Enter the word or symbol to delete.");
             string word = Console.ReadLine();
-            if (String.IsNullOrEmpty(word))
+            const string myStr = "note.txt";
+            if (string.IsNullOrEmpty(word))
             {
                 Console.WriteLine(textStream);
             }
@@ -26,7 +27,7 @@ namespace ConsoleApp
                     Console.WriteLine(textReplace);
                     Console.Write("Enter the path to save file: ");
                     string writePath = (Console.ReadLine());
-                    string writePathFile = writePath + "note.txt";
+                    string writePathFile = writePath + myStr;
                     try
                     {
                         using (StreamWriter sw = new StreamWriter(writePathFile, false, System.Text.Encoding.Default))

@@ -5,7 +5,7 @@ using System.IO;
 
 namespace ConsoleApp
 {
-    class Word : Text
+    class Word : Path
     {
         public void CountWord()
         {

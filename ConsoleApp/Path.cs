@@ -3,7 +3,7 @@ using System.IO;
 
 namespace ConsoleApp
 {
-    internal class ReadFile
+    internal class Path
     {
         public static string ReadT()
         {

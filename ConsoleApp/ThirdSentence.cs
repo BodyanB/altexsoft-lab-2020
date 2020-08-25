@@ -5,7 +5,7 @@ using System.IO;
 
 namespace ConsoleApp
 {
-    class ThirdSentence : Text
+    class ThirdSentence : Path
     {
         public void MoveTSentence()           
         {

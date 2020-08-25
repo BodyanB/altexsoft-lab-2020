@@ -34,7 +34,7 @@ namespace ConsoleApp
                     case "1":
                         Console.Clear();
                         Text rt = new Text();
-                        rt.RText();
+                        rt.ReadText();
                         break;
                     case "2":
                         Console.Clear();
@@ -49,7 +49,7 @@ namespace ConsoleApp
                     case "4":
                         Console.Clear();
                         FolderName fn = new FolderName();
-                        fn.FName();
+                        fn.ChooseFileDir();
                         break;
                     case "5":
                         Console.Clear();

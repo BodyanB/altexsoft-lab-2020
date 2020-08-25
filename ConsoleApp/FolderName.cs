@@ -7,11 +7,11 @@ namespace ConsoleApp
 {
     class FolderName
     {
-        public void FName()
+        public void ChooseFileDir()
         {
             Console.WriteLine(@"Enter the path:");
             string path = Console.ReadLine();
-            Dictionary<Int32, string> dirеctory = new Dictionary<int, string>();
+            Dictionary<int, string> dirеctory = new Dictionary<int, string>();
             try
             {
                 string[] dirs = Directory.GetDirectories(path, "*", SearchOption.TopDirectoryOnly);
