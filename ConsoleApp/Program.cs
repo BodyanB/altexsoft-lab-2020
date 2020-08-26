@@ -1,12 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using ConsoleApp;
 
-namespace ConsoleApp
+namespace task1
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Menu menu = new Menu();
+            menu.ShowMenuScreen();
+
+
+            Console.WriteLine("Press any key to exit..");
+            Console.ReadKey();
+
         }
     }
 }
